@@ -118,3 +118,6 @@ AUTH_USER_MODEL = "news.Redactor"
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+LOGIN_REDIRECT_URL = "news:index"
+LOGIN_URL = "login"
