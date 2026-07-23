@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Newspaper Agency</h1>
+  <p>Welcome to the Newspaper Agency management system!</p>
+
+  <ul>
+    <li>Total redactors: {{ num_redactors }}</li>
+    <li>Total newspapers: {{ num_newspapers }}</li>
+    <li>Total topics: {{ num_topics }}</li>
+  </ul>
+
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+{% endblock %}
