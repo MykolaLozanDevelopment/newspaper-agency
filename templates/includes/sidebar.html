@@ -1,0 +1,30 @@
+<ul class="sidebar-nav">
+  {% if user.is_authenticated %}
+    <li>
+      User: <a href="{% url 'news:redactor-detail' pk=user.pk %}">{{ user.username }}</a>
+    </li>
+    <li>
+      <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link p-0">Logout</button>
+      </form>
+    </li>
+  {% else %}
+    <li>
+      <a href="{% url 'login' %}">Login</a>
+    </li>
+  {% endif %}
+  <br>
+  <li>
+    <a href="{% url 'news:index' %}">Home</a>
+  </li>
+  <li>
+    <a href="{% url 'news:topic-list' %}">All topics</a>
+  </li>
+  <li>
+    <a href="{% url 'news:newspaper-list' %}">All newspapers</a>
+  </li>
+  <li>
+    <a href="{% url 'news:redactor-list' %}">All redactors</a>
+  </li>
+</ul>
