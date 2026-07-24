@@ -7,8 +7,9 @@
     {{ search_form }}
     <button type="submit" class="btn btn-outline-secondary ml-2">Search</button>
   </form>
-
-  <a href="{% url 'news:newspaper-create' %}" class="btn btn-success mb-3">Add newspaper</a>
+  {% if user.is_staff %}
+    <a href="{% url 'news:newspaper-create' %}" class="btn btn-success mb-3">Add newspaper</a>
+  {% endif %}
   {% if selected_topic %}
     <p>Filtered by topic: <strong>{{ selected_topic.name }}</strong> — <a href="{% url 'news:newspaper-list' %}">clear filter</a></p>
   {% endif %}
@@ -27,10 +28,12 @@
           <td><a href="{% url 'news:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }}</a></td>
           <td>{{ newspaper.topic.name }}</td>
           <td>{{ newspaper.published_date }}</td>
-          <td>
-            <a href="{% url 'news:newspaper-update' pk=newspaper.pk %}" class="btn btn-sm btn-primary">Edit</a>
-            <a href="{% url 'news:newspaper-delete' pk=newspaper.pk %}" class="btn btn-sm btn-danger">Delete</a>
-          </td>
+          {% if user.is_staff %}
+            <td>
+              <a href="{% url 'news:newspaper-update' pk=newspaper.pk %}" class="btn btn-sm btn-primary">Edit</a>
+              <a href="{% url 'news:newspaper-delete' pk=newspaper.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+          {% endif %}
         </tr>
       {% empty %}
         <tr>

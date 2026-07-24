@@ -14,11 +14,24 @@ class RedactorCreationForm(UserCreationForm):
             "first_name", "last_name"
         )
 
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.is_staff = True
+        if commit:
+            user.save()
+        return user
+
 
 class RedactorYearsOfExperienceUpdateForm(forms.ModelForm):
     class Meta:
         model = Redactor
         fields = ["years_of_experience"]
+
+        
+class PublicSignUpForm(UserCreationForm):
+    class Meta:
+        model = Redactor
+        fields = ("username", "first_name", "last_name")
 
 
 class NewspaperForm(forms.ModelForm):
