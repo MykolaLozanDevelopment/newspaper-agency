@@ -20,7 +20,7 @@
     <tbody>
       {% for topic in topic_list %}
         <tr>
-          <td>{{ topic.name }}</td>
+          <td><a href="{% url 'news:newspaper-list' %}?topic={{ topic.pk }}">{{ topic.name }}</a></td>
           <td>
             <a href="{% url 'news:topic-update' pk=topic.pk %}" class="btn btn-sm btn-primary">Edit</a>
             <a href="{% url 'news:topic-delete' pk=topic.pk %}" class="btn btn-sm btn-danger">Delete</a>

@@ -82,15 +82,21 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         context = super().get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
         context["search_form"] = NewspaperSearchForm(initial={"title": title})
+        topic_id = self.request.GET.get("topic")
+        if topic_id:
+            context["selected_topic"] = Topic.objects.filter(pk=topic_id).first()
         return context
 
     def get_queryset(self):
         queryset = Newspaper.objects.all().select_related("topic")
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
+            queryset = queryset.filter(
                 title__icontains=form.cleaned_data["title"]
             )
+        topic_id = self.request.GET.get("topic")
+        if topic_id:
+            queryset = queryset.filter(topic_id=topic_id)
         return queryset
 
 

@@ -9,7 +9,9 @@
   </form>
 
   <a href="{% url 'news:newspaper-create' %}" class="btn btn-success mb-3">Add newspaper</a>
-
+  {% if selected_topic %}
+    <p>Filtered by topic: <strong>{{ selected_topic.name }}</strong> — <a href="{% url 'news:newspaper-list' %}">clear filter</a></p>
+  {% endif %}
   <table class="table table-striped">
     <thead>
       <tr>
