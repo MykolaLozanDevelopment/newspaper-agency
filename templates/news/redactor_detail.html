@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object.username }}</h1>
+
+  <p><strong>Full name:</strong> {{ object.first_name }} {{ object.last_name }}</p>
+  <p><strong>Years of experience:</strong> {{ object.years_of_experience|default:"-" }}</p>
+
+  <p><strong>Newspapers published:</strong></p>
+  <ul>
+    {% for newspaper in object.newspapers.all %}
+      <li>
+        <a href="{% url 'news:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }}</a>
+        ({{ newspaper.topic.name }})
+      </li>
+    {% empty %}
+      <li>No newspapers yet.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'news:redactor-update' pk=object.pk %}" class="btn btn-primary">Edit experience</a>
+  <a href="{% url 'news:redactor-delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'news:redactor-list' %}" class="btn btn-secondary">Back to list</a>
+{% endblock %}
