@@ -11,15 +11,71 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <style>
-    body { background-color: #f8f9fa; }
+    :root {
+      --navy: #2c3e50;
+      --navy-dark: #223140;
+      --burgundy: #7a2942;
+      --burgundy-dark: #611f34;
+      --slate: #56687a;
+    }
+
+    body {
+      background-color: #e8eaed;
+    }
+
     .sidebar {
-      background-color: #212529;
+      background-color: #1f2a36;
       min-height: 100vh;
       padding-top: 1rem;
     }
-    .sidebar a { color: #adb5bd; }
+    .sidebar a { color: #a9b4bf; }
     .sidebar a:hover { color: #fff; text-decoration: none; }
+
     .main-content { padding: 2rem; }
+
+    /* Muted palette overrides */
+    .btn-primary {
+      background-color: var(--navy);
+      border-color: var(--navy);
+    }
+    .btn-primary:hover {
+      background-color: var(--navy-dark);
+      border-color: var(--navy-dark);
+    }
+
+    .btn-danger {
+      background-color: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+    .btn-danger:hover {
+      background-color: var(--burgundy-dark);
+      border-color: var(--burgundy-dark);
+    }
+
+    .btn-success {
+      background-color: #3f7a5e;
+      border-color: #3f7a5e;
+    }
+    .btn-success:hover {
+      background-color: #325f49;
+      border-color: #325f49;
+    }
+
+    .bg-navy { background-color: var(--navy) !important; }
+    .bg-burgundy { background-color: var(--burgundy) !important; }
+    .bg-slate { background-color: var(--slate) !important; }
+
+    .badge-info {
+      background-color: var(--navy);
+    }
+    .badge-secondary {
+      background-color: var(--slate);
+    }
+
+    .card { border: none; }
+    .thead-light th {
+      background-color: #eef0f2;
+    }
   </style>
 </head>
 
