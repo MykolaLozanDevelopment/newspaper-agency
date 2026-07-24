@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ object.title }}</h1>
+
+  <p><strong>Topic:</strong> {{ object.topic.name }}</p>
+  <p><strong>Published date:</strong> {{ object.published_date }}</p>
+  <p><strong>Content:</strong></p>
+  <p>{{ object.content }}</p>
+
+  <p><strong>Publishers:</strong></p>
+  <ul>
+    {% for publisher in object.publishers.all %}
+      <li>
+        <a href="{% url 'news:redactor-detail' pk=publisher.pk %}">
+          {{ publisher.username }} ({{ publisher.first_name }} {{ publisher.last_name }})
+        </a>
+      </li>
+    {% empty %}
+      <li>No publishers assigned.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'news:newspaper-update' pk=object.pk %}" class="btn btn-primary">Edit</a>
+  <a href="{% url 'news:newspaper-delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
+  <a href="{% url 'news:newspaper-list' %}" class="btn btn-secondary">Back to list</a>
+{% endblock %}

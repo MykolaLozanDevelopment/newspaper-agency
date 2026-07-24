@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Newspapers</h1>
+
+  <form method="get" class="form-inline mb-3">
+    {{ search_form }}
+    <button type="submit" class="btn btn-outline-secondary ml-2">Search</button>
+  </form>
+
+  <a href="{% url 'news:newspaper-create' %}" class="btn btn-success mb-3">Add newspaper</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Topic</th>
+        <th>Published date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for newspaper in newspaper_list %}
+        <tr>
+          <td><a href="{% url 'news:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }}</a></td>
+          <td>{{ newspaper.topic.name }}</td>
+          <td>{{ newspaper.published_date }}</td>
+          <td>
+            <a href="{% url 'news:newspaper-update' pk=newspaper.pk %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'news:newspaper-delete' pk=newspaper.pk %}" class="btn btn-sm btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No newspapers found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
