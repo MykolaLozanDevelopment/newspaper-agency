@@ -120,3 +120,4 @@ STATIC_URL = "static/"
 
 LOGIN_REDIRECT_URL = "news:index"
 LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = "news:index"

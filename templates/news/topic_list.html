@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Topics</h1>
+
+  <form method="get" class="form-inline mb-3">
+    {{ search_form }}
+    <button type="submit" class="btn btn-outline-secondary ml-2">Search</button>
+  </form>
+
+  <a href="{% url 'news:topic-create' %}" class="btn btn-success mb-3">Add topic</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for topic in topic_list %}
+        <tr>
+          <td>{{ topic.name }}</td>
+          <td>
+            <a href="{% url 'news:topic-update' pk=topic.pk %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'news:topic-delete' pk=topic.pk %}" class="btn btn-sm btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="2">No topics found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
