@@ -23,14 +23,14 @@ def index(request):
     num_newspapers = Newspaper.objects.count()
     num_topics = Topic.objects.count()
 
-    num_visits = request.session.get("num_visits", 0) + 1
-    request.session["num_visits"] = num_visits
+    request.user.visit_count += 1
+    request.user.save(update_fields=["visit_count"])
 
     context = {
         "num_redactors": num_redactors,
         "num_newspapers": num_newspapers,
         "num_topics": num_topics,
-        "num_visits": num_visits,
+        "num_visits": request.user.visit_count,
     }
     return render(request, "news/index.html", context=context)
 

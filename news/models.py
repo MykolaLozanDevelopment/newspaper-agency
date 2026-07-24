@@ -15,6 +15,7 @@ class Topic(models.Model):
 
 class Redactor(AbstractUser):
     years_of_experience = models.IntegerField(blank=True, null=True)
+    visit_count = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = "redactor"
