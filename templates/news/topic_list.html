@@ -1,40 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Topics</h1>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Topics</h1>
+    {% if user.is_staff %}
+      <a href="{% url 'news:topic-create' %}" class="btn btn-success">+ Add topic</a>
+    {% endif %}
+  </div>
 
-  <form method="get" class="form-inline mb-3">
+  <form method="get" class="form-inline mb-4">
     {{ search_form }}
     <button type="submit" class="btn btn-outline-secondary ml-2">Search</button>
   </form>
 
-  {% if user.is_staff %}
-    <a href="{% url 'news:topic-create' %}" class="btn btn-success mb-3">Add topic</a>
-  {% endif %}
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for topic in topic_list %}
+  <div class="card shadow-sm">
+    <table class="table table-hover mb-0">
+      <thead class="thead-light">
         <tr>
-          <td><a href="{% url 'news:newspaper-list' %}?topic={{ topic.pk }}">{{ topic.name }}</a></td>
-          <td>
+          <th>Name</th>
+          {% if user.is_staff %}<th class="text-right">Actions</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for topic in topic_list %}
+          <tr>
+            <td>
+              <a href="{% url 'news:newspaper-list' %}?topic={{ topic.pk }}">{{ topic.name }}</a>
+            </td>
             {% if user.is_staff %}
-              <a href="{% url 'news:topic-update' pk=topic.pk %}" class="btn btn-sm btn-primary">Edit</a>
-              <a href="{% url 'news:topic-delete' pk=topic.pk %}" class="btn btn-sm btn-danger">Delete</a>
+              <td class="text-right">
+                <a href="{% url 'news:topic-update' pk=topic.pk %}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{% url 'news:topic-delete' pk=topic.pk %}" class="btn btn-sm btn-danger">Delete</a>
+              </td>
             {% endif %}
-          </td>
-        </tr>
-      {% empty %}
-        <tr>
-          <td colspan="2">No topics found.</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2" class="text-center text-muted py-3">No topics found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
