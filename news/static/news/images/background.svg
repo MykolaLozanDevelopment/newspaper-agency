@@ -1,0 +1,95 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2c3e50"/>
+      <stop offset="100%" stop-color="#1f2a36"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4f1ea"/>
+      <stop offset="100%" stop-color="#e8e3d8"/>
+    </linearGradient>
+    <radialGradient id="cupShade" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#8a3350"/>
+      <stop offset="100%" stop-color="#611f34"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#desk)"/>
+
+  <!-- subtle desk texture lines -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="2">
+    <line x1="0" y1="120" x2="1600" y2="100"/>
+    <line x1="0" y1="340" x2="1600" y2="360"/>
+    <line x1="0" y1="560" x2="1600" y2="540"/>
+    <line x1="0" y1="780" x2="1600" y2="800"/>
+  </g>
+
+  <!-- Newspaper, folded, rotated slightly -->
+  <g transform="translate(150,420) rotate(-8)">
+    <rect x="0" y="0" width="560" height="360" rx="4" fill="url(#paper)" opacity="0.85"/>
+    <rect x="20" y="24" width="230" height="34" fill="#2c3e50" opacity="0.55"/>
+    <line x1="20" y1="80" x2="530" y2="80" stroke="#7a2942" stroke-width="3" opacity="0.4"/>
+    <g fill="#2c3e50" opacity="0.25">
+      <rect x="20" y="100" width="240" height="10"/>
+      <rect x="20" y="120" width="240" height="10"/>
+      <rect x="20" y="140" width="190" height="10"/>
+      <rect x="20" y="170" width="240" height="10"/>
+      <rect x="20" y="190" width="240" height="10"/>
+      <rect x="20" y="210" width="150" height="10"/>
+    </g>
+    <rect x="290" y="100" width="240" height="150" fill="#56687a" opacity="0.3"/>
+    <g fill="#2c3e50" opacity="0.2">
+      <rect x="20" y="270" width="510" height="8"/>
+      <rect x="20" y="288" width="510" height="8"/>
+      <rect x="20" y="306" width="380" height="8"/>
+    </g>
+  </g>
+
+  <!-- Second newspaper sheet peeking out -->
+  <g transform="translate(120,460) rotate(-14)">
+    <rect x="0" y="0" width="560" height="360" rx="4" fill="url(#paper)" opacity="0.5"/>
+  </g>
+
+  <!-- Coffee cup with saucer, top view -->
+  <g transform="translate(980,180)">
+    <ellipse cx="120" cy="130" rx="150" ry="150" fill="#e8eaed" opacity="0.9"/>
+    <ellipse cx="120" cy="130" rx="150" ry="150" fill="none" stroke="#1f2a36" stroke-opacity="0.15" stroke-width="4"/>
+    <ellipse cx="120" cy="130" rx="95" ry="95" fill="url(#cupShade)"/>
+    <ellipse cx="120" cy="130" rx="95" ry="95" fill="none" stroke="#3a1220" stroke-opacity="0.3" stroke-width="3"/>
+    <ellipse cx="120" cy="105" rx="70" ry="55" fill="#3a1220" opacity="0.35"/>
+    <path d="M 260 90 q 60 10 45 70 q -12 45 -55 40" fill="none" stroke="#e8eaed" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+  </g>
+
+  <!-- Steam lines -->
+  <g stroke="#e8eaed" stroke-opacity="0.25" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M 1060 60 q 15 -30 0 -55 q -15 -25 0 -55"/>
+    <path d="M 1100 60 q 15 -30 0 -55 q -15 -25 0 -55"/>
+  </g>
+
+  <!-- Glasses -->
+  <g transform="translate(650,560) rotate(6)">
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#e8eaed" stroke-width="10" opacity="0.55"/>
+    <circle cx="150" cy="10" r="55" fill="none" stroke="#e8eaed" stroke-width="10" opacity="0.55"/>
+    <path d="M 55 0 Q 100 -20 150 10" fill="none" stroke="#e8eaed" stroke-width="8" opacity="0.55"/>
+    <path d="M -55 0 Q -90 -10 -120 5" fill="none" stroke="#e8eaed" stroke-width="8" opacity="0.55"/>
+    <path d="M 205 10 Q 235 15 245 -10" fill="none" stroke="#e8eaed" stroke-width="8" opacity="0.55"/>
+  </g>
+
+  <!-- Phone -->
+  <g transform="translate(1230,540) rotate(10)">
+    <rect x="0" y="0" width="140" height="260" rx="20" fill="#1a2430" opacity="0.85"/>
+    <rect x="10" y="16" width="120" height="228" rx="10" fill="#56687a" opacity="0.5"/>
+    <g fill="#e8eaed" opacity="0.3">
+      <rect x="22" y="34" width="96" height="12" rx="2"/>
+      <rect x="22" y="56" width="70" height="10" rx="2"/>
+      <rect x="22" y="180" width="96" height="10" rx="2"/>
+      <rect x="22" y="198" width="60" height="10" rx="2"/>
+    </g>
+  </g>
+
+  <!-- scattered subtle circles for depth -->
+  <g fill="#7a2942" opacity="0.06">
+    <circle cx="200" cy="120" r="120"/>
+    <circle cx="1450" cy="750" r="180"/>
+  </g>
+</svg>

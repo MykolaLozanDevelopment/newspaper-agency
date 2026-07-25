@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
@@ -19,8 +20,20 @@
       --slate: #56687a;
     }
 
-    body {
-      background-color: #e8eaed;
+  body {
+    background-color: #e8eaed;
+    background-image: url("{% static 'news/images/background.svg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(232, 234, 237, 0.88);
+      z-index: -1;
     }
 
     .sidebar {
