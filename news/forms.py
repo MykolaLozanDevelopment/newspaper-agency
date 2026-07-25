@@ -11,7 +11,8 @@ class RedactorCreationForm(UserCreationForm):
         fields = (
             "username",
             "years_of_experience",
-            "first_name", "last_name"
+            "first_name",
+            "last_name"
         )
 
     def save(self, commit=True):
@@ -27,7 +28,7 @@ class RedactorYearsOfExperienceUpdateForm(forms.ModelForm):
         model = Redactor
         fields = ["years_of_experience"]
 
-        
+
 class PublicSignUpForm(UserCreationForm):
     class Meta:
         model = Redactor
