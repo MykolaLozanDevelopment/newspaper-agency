@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h1 class="mb-1">{{ object.title }}</h1>
+      <span class="badge badge-secondary mb-3">{{ object.topic.name }}</span>
+      <p class="text-muted">Published: {{ object.published_date }}</p>
+
+      <hr>
+
+      <p>{{ object.content }}</p>
+
+      <hr>
+
+      <h6 class="text-uppercase text-muted">Publishers</h6>
+      <ul class="list-unstyled">
+        {% for publisher in object.publishers.all %}
+          <li class="mb-1">
+            <a href="{% url 'news:redactor-detail' pk=publisher.pk %}">
+              {{ publisher.username }} ({{ publisher.first_name }} {{ publisher.last_name }})
+            </a>
+          </li>
+        {% empty %}
+          <li class="text-muted">No publishers assigned.</li>
+        {% endfor %}
+      </ul>
+
+      <div class="mt-4">
+        {% if user.is_staff %}
+          <a href="{% url 'news:newspaper-update' pk=object.pk %}" class="btn btn-primary">Edit</a>
+          <a href="{% url 'news:newspaper-delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+        <a href="{% url 'news:newspaper-list' %}" class="btn btn-outline-secondary">Back to list</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

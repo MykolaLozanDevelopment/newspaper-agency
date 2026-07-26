@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Newspapers</h1>
+    {% if user.is_staff %}
+      <a href="{% url 'news:newspaper-create' %}" class="btn btn-success">+ Add newspaper</a>
+    {% endif %}
+  </div>
+
+  {% if selected_topic %}
+    <p>Filtered by topic: <span class="badge badge-info">{{ selected_topic.name }}</span>
+      <a href="{% url 'news:newspaper-list' %}" class="ml-1">clear filter</a></p>
+  {% endif %}
+
+  <form method="get" class="form-inline mb-4">
+    {{ search_form }}
+    <button type="submit" class="btn btn-outline-secondary ml-2">Search</button>
+  </form>
+
+  <div class="card shadow-sm">
+    <table class="table table-hover mb-0">
+      <thead class="thead-light">
+        <tr>
+          <th>Title</th>
+          <th>Topic</th>
+          <th>Published date</th>
+          {% if user.is_staff %}<th class="text-right">Actions</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for newspaper in newspaper_list %}
+          <tr>
+            <td><a href="{% url 'news:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }}</a></td>
+            <td><span class="badge badge-secondary">{{ newspaper.topic.name }}</span></td>
+            <td>{{ newspaper.published_date }}</td>
+            {% if user.is_staff %}
+              <td class="text-right">
+                <a href="{% url 'news:newspaper-update' pk=newspaper.pk %}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{% url 'news:newspaper-delete' pk=newspaper.pk %}" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+            {% endif %}
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4" class="text-center text-muted py-3">No newspapers found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

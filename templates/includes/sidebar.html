@@ -1,0 +1,37 @@
+<div class="d-flex flex-column p-3">
+  <span class="text-white h5 mb-4">📰 Newspaper Agency</span>
+
+  {% if user.is_authenticated %}
+    <div class="mb-3">
+      <a href="{% url 'news:redactor-detail' pk=user.pk %}" class="d-block text-white font-weight-bold">
+        {{ user.username }}
+      </a>
+      <form action="{% url 'logout' %}" method="post" class="mt-1">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-outline-light">Logout</button>
+      </form>
+    </div>
+  {% else %}
+    <div class="mb-3">
+      <a href="{% url 'login' %}" class="btn btn-sm btn-outline-light mr-1">Login</a>
+      <a href="{% url 'signup' %}" class="btn btn-sm btn-light">Sign up</a>
+    </div>
+  {% endif %}
+
+  <hr class="bg-secondary">
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="{% url 'news:index' %}" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'news:topic-list' %}" class="nav-link">All topics</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'news:newspaper-list' %}" class="nav-link">All newspapers</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'news:redactor-list' %}" class="nav-link">All redactors</a>
+    </li>
+  </ul>
+</div>

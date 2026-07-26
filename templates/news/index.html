@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="mb-4">Newspaper Agency Dashboard</h1>
+  <p class="text-muted">Welcome back, {{ user.username }}!</p>
+
+  <div class="row mt-4">
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-navy shadow-sm">
+        <div class="card-body">
+          <h6 class="card-title text-uppercase">Topics</h6>
+          <p class="display-4 mb-0">{{ num_topics }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-burgundy shadow-sm">
+        <div class="card-body">
+          <h6 class="card-title text-uppercase">Newspapers</h6>
+          <p class="display-4 mb-0">{{ num_newspapers }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card text-white bg-slate shadow-sm">
+        <div class="card-body">
+          <h6 class="card-title text-uppercase">Redactors</h6>
+          <p class="display-4 mb-0">{{ num_redactors }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-muted mt-3">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+{% endblock %}
