@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import (
+from news.forms import (
     RedactorCreationForm,
     RedactorYearsOfExperienceUpdateForm,
     NewspaperForm,
@@ -14,7 +14,7 @@ from .forms import (
     TopicSearchForm,
     PublicSignUpForm,
 )
-from .models import Topic, Newspaper, Redactor
+from news.models import Topic, Newspaper, Redactor
 
 
 @login_required

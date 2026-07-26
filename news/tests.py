@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Newspaper, Topic
+from news.models import Newspaper, Topic
 
 
 class ModelsTests(TestCase):
