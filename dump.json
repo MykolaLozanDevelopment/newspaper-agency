@@ -1,0 +1,123 @@
+[
+{
+    "model": "news.topic",
+    "pk": 1,
+    "fields": {
+        "name": "Politics"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 2,
+    "fields": {
+        "name": "Crime"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 3,
+    "fields": {
+        "name": "Art"
+    }
+},
+{
+    "model": "news.topic",
+    "pk": 4,
+    "fields": {
+        "name": "Weather"
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$5GAY5XnD3BsXKgXk31NezG$m0mA8iBqyvJAPYXmPCCBRuWXuMIFeuHsP6bY5VWQF9I=",
+        "last_login": "2026-07-27T14:53:38.799Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@mail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-22T08:45:18.149Z",
+        "years_of_experience": 3,
+        "visit_count": 54,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$EMaiz1L4IRpJ0D9KkLa7Kq$kGs/Q2JS5m3THiGaE6x8eckftwLMiHt0KxRM4mLb/1M=",
+        "last_login": "2026-07-24T11:12:00.235Z",
+        "is_superuser": false,
+        "username": "MykolaLozan",
+        "first_name": "Mykola",
+        "last_name": "Lozan",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-24T10:59:08.161Z",
+        "years_of_experience": 12,
+        "visit_count": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$TDjFpdjjvFmHbMYmY2NRiE$2KQ7rRECar7WZrUa2JxdBi0Zd8bQQCY9h+Et+fZnnkA=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "GrygoriySkovoroda",
+        "first_name": "Grygoriy",
+        "last_name": "Skovoroda",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-24T11:00:25.993Z",
+        "years_of_experience": 13,
+        "visit_count": 0,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.redactor",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$N4UqfGs9bUbkQHdf0DUr7V$0r4J6UmVa015r60y3WyYyBSpOW7gkea5FqNDlialouc=",
+        "last_login": "2026-07-25T15:11:21.711Z",
+        "is_superuser": false,
+        "username": "test",
+        "first_name": "test",
+        "last_name": "test",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-24T13:04:00.129Z",
+        "years_of_experience": null,
+        "visit_count": 14,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "news.newspaper",
+    "pk": 1,
+    "fields": {
+        "title": "Senate Republicans Push CLARITY Act With 15 Days Left as Bitcoin Struggles Near $66K",
+        "content": "Bitcoin, which came within a whisker of breaching $67,000 on July 21, struggled to hold $66,000 on Wednesday amid slow progress on the CLARITY Act in the U.S. Senate. Market data show the top cryptocurrency plummeted from its 24-hour peak of $66,921 to $65,727 during a seven-hour sell-off that lasted into the early hours of Wednesday.  A subsequent relief rally saw bitcoin reclaim $66,000, but momentum stalled, triggering a period of intense volatility that subsided shortly before 8 a.m. EST. Bitcoin then plunged to an intraday low of $65,536, quickly erased the losses, and then dropped back near $65,500.\r\n\r\nAt the time of writing (12:52 p.m. EST), the top cryptocurrency was trading just under $66,200, down 0.4% over 24 hours. Reclaiming the $66,000 threshold lifted Bitcoin’s market capitalization to just over $1.32 trillion and pushed its month-to-date gains to 12%, underscoring its recovery from June losses.\r\n\r\nIn the derivatives market, bitcoin’s marginal price movement on Wednesday muted liquidations. Long liquidations totaled more than $18 million, while short positions reached $11 million. Across the broader cryptocurrency market, liquidations totaled $164 million, split between $78 million in long positions and $86 million in short positions.\r\n\r\nWhile the ongoing conflict in the Middle East has weighed on markets for nearly two weeks, crypto assets found support following reports of an updated CLARITY Act text released by Senate Republicans. Negotiated alongside the White House, the revised bill includes a strict ethics package that bars the president, vice president, members of Congress, federal judges, and covered officials—along with their spouses—from issuing or sponsoring digital assets for compensation while in office through Jan. 20, 2029.",
+        "published_date": "2026-07-24",
+        "topic": 1,
+        "publishers": [
+            2
+        ]
+    }
+}
+]
