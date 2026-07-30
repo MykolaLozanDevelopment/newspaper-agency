@@ -10,6 +10,18 @@ You are the editor-in-chief of a newspaper agency. This project helps
 track which redactors are responsible for each newspaper issue, so it's
 always clear who published what.
 
+## Live Demo
+You can view the live version of this project at: [https://newspaper-agency-vo7n.onrender.com](https://newspaper-agency-vo7n.onrender.com)
+
+## Test Credentials for Demo:
+SIMPLE USER
+  Login: test_user
+  Password: password123qwerty
+
+REDACTOR USER
+  Login: admin
+  Password: 12345qwert
+
 ### Features
 
 - Full CRUD for Topics, Newspapers, and Redactors.
